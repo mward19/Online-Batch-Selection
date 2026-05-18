@@ -216,6 +216,9 @@ class SnapshotManager:
         )
 
     def build_snapshot(self, model, device, total_step, epoch):
+        # yh: predicted_probs
+        # f: list of losses
+        # e: list of errors (1 - acc)
         with torch.no_grad():
             yh, f, e = self._calculate_snapshot_stats(
                 model,

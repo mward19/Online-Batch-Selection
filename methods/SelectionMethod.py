@@ -80,6 +80,7 @@ class SelectionMethod(object):
         
         self.train_dset = self.data_info['train_dset']
         self.test_loader = self.data_info['test_loader']
+        self.auxiliary_test_loaders = self.data_info.get('auxiliary_test_loaders', []) # TODO: implement in data_info
         self.num_train_samples = self.data_info['num_train_samples']
 
         self.criterion = create_criterion(config, logger)
@@ -120,6 +121,7 @@ class SelectionMethod(object):
             checkpoint_saver=self.save_checkpoint,
             noisy_indices=self.data_info.get('noisy_indices'),
             true_labels=self.data_info.get('true_labels'),
+            auxiliary_test_loaders=self.auxiliary_test_loaders
         )
         self.diagnostics_logger = DiagnosticsLogger(
             logger=self.logger,

@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import Any
+from typing import Any, List
 
 
 @dataclass(frozen=True)
@@ -21,3 +21,4 @@ class DiagnosticsRunContext:
     checkpoint_saver: Any = None
     noisy_indices: Any = None
     true_labels: Any = None
+    auxiliary_test_loaders: List[Any] = None
