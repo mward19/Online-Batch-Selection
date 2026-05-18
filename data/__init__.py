@@ -27,3 +27,4 @@ from .teacher_generated import (
     Teacher_Generated,
     Teacher_Generated_Noise,
 )
+from .pacs import PACS
